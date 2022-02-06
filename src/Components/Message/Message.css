@@ -1,0 +1,21 @@
+.message {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.message-avatar {
+  margin-right: 15px;
+}
+
+.message-username {
+  color: white;
+  font-size: 15px;
+}
+
+.message-text {
+  color: #c0c0ca;
+  font-size: small;
+  display: flex;
+  word-break: normal;
+  white-space: normal;
+}
