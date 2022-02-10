@@ -15,7 +15,7 @@ import {
   query,
   orderBy,
   limit,
-  serverTimestamp,
+  serverTimestamp
 } from "firebase/firestore";
 import db from "../../Services/Firebase/firebase";
 
@@ -29,12 +29,12 @@ function ChatSection() {
   const inputKeypress = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      if (e.target.value != "") {
+      if (e.target.value.trim() !== "") {
         const c = collection(db, "chatrooms", chatroomId, "messages");
         addDoc(c, {
           body: e.target.value,
           username: username,
-          timestamp: serverTimestamp(),
+          timestamp: serverTimestamp()
         });
 
         e.target.value = "";
@@ -61,7 +61,6 @@ function ChatSection() {
       });
     }
   }, [chatroomId]);
-  const inputHandler = (e) => {};
 
   return (
     <div className="chat">
@@ -87,9 +86,6 @@ function ChatSection() {
           <div className="chat__message-input-section">
             <form action="">
               <TextField
-                onChange={(e) => {
-                  inputHandler(e);
-                }}
                 fullWidth
                 multiline
                 maxRows={7}
